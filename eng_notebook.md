@@ -29,15 +29,15 @@ Runtime Details
     - Write in log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
 2. If no message in queue, machine should:
     - Generate random number in range 1-10
+        - Val = 1: send to one of the other machines a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time
+        - Val = 2: send to the other virtual machine a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time.
+        - Vale = 3: send to both of the other virtual machines a message that is the logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time.
+        - Val = 4-10: treat the cycle as an internal event; update the local logical clock, and log the internal event, the system time, and the logical clock value.
 
-if the value is 1, send to one of the other machines a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time
-if the value is 2, send to the other virtual machine a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time.
-if the value is 3, send to both of the other virtual machines a message that is the logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time.
-if the value is other than 1-3, treat the cycle as an internal event; update the local logical clock, and log the internal event, the system time, and the logical clock value.
-While working on this, keep a lab notebook in which you note the design decisions you have made. Then, run the scale model at least 5 times for at least one minute each time. Examine the logs, and discuss (in the lab book) the size of the jumps in the values for the logical clocks, drift in the values of the local logical clocks in the different machines (you can get a god’s eye view because of the system time), and the impact different timings on such things as gaps in the logical clock values and length of the message queue. Observations and reflections about the model and the results of running the model are more than welcome.
-
-Once you have run this on three virtual machines that can vary their internal times by an order of magnitude, try running it with a smaller variation in the clock cycles and a smaller probability of the event being internal. What differences do those variations make? Add these observations to your lab notebook. Play around, and see if you can find something interesting.
-
-You may use whatever packages or support code for the construction of the model machines and for the communication between the processes. 
-
-You will turn in both the code (or a pointer to your repo containing the code) and the lab notebook. You will also demo this, presenting your code and choices, during demo day 2.
+Testing/ Logging
+1. Unit Tests
+2. Run the scale model >5 times for at at least 1 min each time and discuss on at least 3 virtual machines:
+    - size of jumps in values for logical clocks
+    - drift in values of local logical clocks in different machines (use system time)
+    - impact of different timings on things such as gaps in logical clock values and length of message queue
+3. Run same experiment above with smaller variation in clock cycles and smaller probability of event being internal
