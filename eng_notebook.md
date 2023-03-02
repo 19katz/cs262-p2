@@ -31,7 +31,7 @@ Runtime Details
     - Generate random number in range 1-10
         - Val = 1: send to one of the other machines a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time
         - Val = 2: send to the other virtual machine a message that is the local logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time.
-        - Vale = 3: send to both of the other virtual machines a message that is the logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time.
+        - Val = 3: send to both of the other virtual machines a message that is the logical clock time, update it’s own logical clock, and update the log with the send, the system time, and the logical clock time.
         - Val = 4-10: treat the cycle as an internal event; update the local logical clock, and log the internal event, the system time, and the logical clock value.
 
 Testing/ Logging
