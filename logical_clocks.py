@@ -5,13 +5,15 @@ import socket
 import Queue
 
 class VirtualMachine():
-    def __init__(self, host, port):
+    def __init__(self, host, port, ticks):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.bind((host, port))
         self.host = host
         self.port = port
         # for holding incoming messages
         self.queue = Queue()
+        self.ticks = ticks
+    
 
 # will run each server -- loop and solicit messages, randomly
 # select ints to determine if messages are sent
