@@ -43,18 +43,19 @@ class VirtualMachine():
                 # m0 sends to m1, m1 sends to m2, m2 sends to m0
                 rec = [(self.id + 1) % 3]
                 self.system_queue[rec].put(self.logical_clock)
-                # TODO: update log
+                # TODO: update log with the send, the system time, and the logical clock time
             elif val == 2:
                 # m0 sends to m2, m1 sends to m0, m2 sends to m1
                 rec = [(self.id + 2) % 3]
                 self.system_queue[rec].put(self.logical_clock)
-                # TODO: update log
+                # TODO: update log with the send, the system time, and the logical clock time
             elif val == 3:
                 # m0 sends to m1/2, m1 sends to m2/0, m2 sends to m0/1
                 rec = [(self.id + 1)%3, (self.id + 2)%3]
                 self.system_queue[rec].put(self.logical_clock)
-                # TODO: update log
+                # TODO: update log with the send, the system time, and the logical clock time
             else:
+                # TODO: update log with internal event, the system time, and the logical clock value.
                 pass
 
 # will run each server -- loop and solicit messages, randomly
