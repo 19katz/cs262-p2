@@ -4,13 +4,6 @@ import threading
 import queue
 from random import randint
 
-def gen_queues(machine_count):
-    system_queue = []
-    for i in range(machine_count):
-        system_queue.append(queue.Queue())
-    return system_queue
-        
-
 class VirtualMachine():
     def __init__(self, ticks, machine_count, id):
         self.machine_count = machine_count
@@ -38,6 +31,11 @@ class VirtualMachine():
         self.logical_clock += 1
 
         if not self.queue.empty():
+            # get the logical clock time that was sent to you
+            rec_logical_clock = self.id_queue.get()
+            self.id_queue.pop()
+            self.logical_clock = max(rec_logical_clock, self.logical_clock)
+            # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
             print("Queue is not empty!")
         else:
             val = randint(1,10)
