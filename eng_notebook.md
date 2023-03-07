@@ -41,3 +41,11 @@ Testing/ Logging
     - drift in values of local logical clocks in different machines (use system time)
     - impact of different timings on things such as gaps in logical clock values and length of message queue
 3. Run same experiment above with smaller variation in clock cycles and smaller probability of event being internal
+
+## Implementing Logical Clocks
+- Decided to use the general structure described in Lab by TF
+- We have threads that listen to the other machines, and threads that send messages
+to the other machines
+- Each machine runs as a Process
+- Tried to organize things in a class structure, but this caused Threading issues
+- Going to remove things from classes to make it work
