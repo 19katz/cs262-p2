@@ -19,6 +19,13 @@ signal(SIGPIPE,SIG_DFL)
 def logging_util():
     pass
 
+# https://stackoverflow.com/questions/1540822/dumping-a-multiprocessing-queue-into-a-list
+def dump_queue(q):
+    q.put(None)
+    item = list(iter(lambda : q.get(timeout=0.00001), None))
+    print(item)
+    return item
+
 class SocketUtil(Process):
     def __init__(self, host, port, queue):
         Process.__init__(self)
@@ -31,24 +38,14 @@ class SocketUtil(Process):
         self.server.bind((self.host, self.port))
         self.server.listen(10)
     
-    def consumer(self):
-        server = [self.server]
-        while self.event.is_set():
-            sock_list = select(server, [], server, 0.01)
-            for sock in sock_list:
-                if sock == server:
-                    conn, addr = sock.accept()
-                    print("Connection accepted: " + str(conn))
-                    sock_list.append(conn)
-                else:
-                    data = conn.recv(1024)
-                    data_msg = data.decode('ascii')
-                    print("Received message " + data_msg)
-                    # add to queue
-                    self.queue.put((data_msg)) 
-        for sock in server:
-            sock.close()
-        print("Servers closed")
+    def run(self):
+        conn, addr = self.server.accept()
+        print("Connection accepted: " + str(conn))
+        data = conn.recv(1024)
+        data_msg = data.decode('ascii')
+        print("Received message " + data_msg)
+        # add to queue
+        self.queue.put((data_msg)) 
 
 def send_msg(host, port, id, machine_count, run_time):
     queue = Manager().Queue()
@@ -72,11 +69,11 @@ def send_msg(host, port, id, machine_count, run_time):
             start_time = time.time()
             if not queue.empty():
                 # get the logical clock time that was sent to you
-                rec_logical_clock = queue.get()
-                queue.pop()
+                rec_logical_clock = int(queue.get())
                 logical_clock = max(rec_logical_clock, logical_clock)
                 # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
                 print("Queue is not empty!")
+                dump_queue(queue)
             else:
                 global val
                 val = randint(1,10)
@@ -90,6 +87,7 @@ def send_msg(host, port, id, machine_count, run_time):
                     data = str(logical_clock).encode('ascii')
                     machine_connections[rec].send(data)
                     print("sent ", data)
+                    dump_queue(queue)
                     # TODO: update log with the send, the system time, and the logical clock time
                 elif val == 2:
                     print("val:", val)
@@ -101,6 +99,7 @@ def send_msg(host, port, id, machine_count, run_time):
                     data = str(logical_clock).encode('ascii')
                     machine_connections[rec].send(data)
                     print("sent ", data)
+                    dump_queue(queue)
                     # TODO: update log with the send, the system time, and the logical clock time
                 elif val == 3:
                     print("val:", val)
@@ -113,10 +112,12 @@ def send_msg(host, port, id, machine_count, run_time):
                         print(machine_connections)
                         machine_connections[r].send(data)
                     print("sent ", data)
+                    dump_queue(queue)
                     # TODO: update log with the send, the system time, and the logical clock time
                 else:
                     # TODO: update log with internal event, the system time, and the logical clock value.
                     pass
+
         time.sleep(1/ticks - (time.time() - start_time))
     
     for connection in machine_connections.values():
