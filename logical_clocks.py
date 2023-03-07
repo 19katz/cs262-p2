@@ -1,13 +1,23 @@
-import multiprocessing
 import time
 import threading
 import queue
+import os
+import socket
 from random import randint
-import logging
+from multiprocessing import Process
+from _thread import * 
+from threading import Thread
 
-class VirtualMachine():
-    def __init__(self, ticks, machine_count, id):
+class VirtualMachine:
+    """Class that represents an individual machine."""
+    def __init__(self, host, port, ticks, machine_count, id):
         self.machine_count = machine_count
+        # host name for this machine
+        self.host = host
+        # port number for this machine
+        self.port = port
+        # will store the socket that is used to connect to/with other machines
+        self.socket = None
         # set ID for the machine to be added to queue
         self.id = id
         # set a random clock rate (randint 1-6, number of ticks per real world seconds)
@@ -19,6 +29,31 @@ class VirtualMachine():
         # init logical clock
         self.logical_clock = 0
         # init logs and clear logs each run 
+    
+    def consumer(conn):
+        print("Connection accepted: " + str(conn))
+        while True:
+            data = conn.recv(1024)
+            data_msg = data.decode('ascii')
+            print("Received message " + data_msg)
+            # add to queue 
+            # -- i'm not sure how the current queue system works?
+            # is it strictly necessary for every machine to hold every other machine's queue?
+    
+    def producer(self, other_port):
+        success = False
+        while not success:
+            try:
+                self.socket.connect((self.host, other_port))
+                print("Successfully connected to " + str(other_port))
+            except:
+                pass
+        
+        while True:
+            # based on the global variable val, send a message to this connection
+            # read message off queue here i guess?
+            # send_msg() 
+            pass
     
     def gen_queues(self):
         system_queue = []
@@ -39,6 +74,7 @@ class VirtualMachine():
             # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
             print("Queue is not empty!")
         else:
+            global val
             val = randint(1,10)
             if val == 1:
                 # m0 sends to m1, m1 sends to m2, m2 sends to m0
@@ -59,9 +95,19 @@ class VirtualMachine():
                 # TODO: update log with internal event, the system time, and the logical clock value.
                 pass
 
+    def start_machine(self):
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.bind((self.host, self.port))
+        self.socket.lostin()
+        while True:
+            conn, addr = self.socket.accept()
+            start_new_thread(self.consumer, (conn,))
+
+
 # will run each server -- loop and solicit messages, randomly
 # select ints to determine if messages are sent
 def run_server():
+    # this can contain the "machine" function as in the demo code
     pass 
 
 if __name__ == "__main__":
