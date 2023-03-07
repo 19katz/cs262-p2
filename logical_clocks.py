@@ -15,10 +15,11 @@ def logging_util():
 
 # Read messages
 class SocketUtil(Process):
-    def __init__(self, host, port, event):
+    def __init__(self, host, port, queue, event):
         Process.__init__(self)
         self.host = host
         self.port = port
+        self.queue = queue
         self.event = event
     
     # Create socket and bind to port
@@ -74,7 +75,6 @@ class VirtualMachine():
             machine_connections[rec] = conn
         return machine_connections
 
-
     def send_msg(self):
         # increment logical clock by 1
         connections = self.connections() 
@@ -123,8 +123,18 @@ class VirtualMachine():
 if __name__ == "__main__":
     host = "localhost"
     ports = [2048, 3048, 4048]
-    # still need to generate ticks randomly from 1-6
-    v1 = VirtualMachine(host, ports[0], ticks, 3, 1)
+    machine_count = 3
+    global_time = time.time()
+    run_time = 10
+    threads = []
+
+    for i in range(0, machine_count-1):
+        vm = VirtualMachine(host, ports, i, machine_count, global_time, run_time)
+        thread = Process(target=vm.send_msg)
+        thread.start()
+        threads.append(thread)
+
+    '''v1 = VirtualMachine(host, ports[0], ticks, 3, 1)
     v2 = VirtualMachine(host, ports[1], ticks, 3, 2)
     v2 = VirtualMachine(host, ports[2], ticks, 3, 3)
 
@@ -138,6 +148,4 @@ if __name__ == "__main__":
 
     p1.join()
     p2.join()
-    p3.join()
-    #vm.print_vals()
-    #vm.send_msg()
+    p3.join()'''
