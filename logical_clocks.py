@@ -3,6 +3,7 @@ import time
 import threading
 import queue
 from random import randint
+import logging
 
 class VirtualMachine():
     def __init__(self, ticks, machine_count, id):
