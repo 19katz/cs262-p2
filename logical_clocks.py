@@ -9,27 +9,27 @@ from _thread import *
 from threading import Thread
 from select import select
 
-# Setup logging
+global global_time
+global_time = time.time()
+
+# logger
 def logging_util():
     pass
 
-# Read messages
 class SocketUtil(Process):
-    def __init__(self, host, port, queue, event):
+    def __init__(self, host, port, queue):
         Process.__init__(self)
         self.host = host
         self.port = port
         self.queue = queue
-        self.event = event
-    
-    # Create socket and bind to port
-    def start_machine(self):
-        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server.bind(self.host, self.port)
-        server.listen(10)
+
+        # init server
+        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.server.bind((self.host, self.port))
+        self.server.listen(10)
     
     def consumer(self):
-        server = self.start_machine()
+        server = [self.server]
         while self.event.is_set():
             sock_list = select(server, [], server, 0.01)
             for sock in sock_list:
@@ -45,80 +45,69 @@ class SocketUtil(Process):
                     self.queue.put((data_msg)) 
         for sock in server:
             sock.close()
-           
+        print("Servers closed")
 
-class VirtualMachine():
-    def __init__(self, host, port, id, machine_count, global_time, run_time):
-        self.host = host
-        self.port = port
-        self.id = id
-        self.machine_count = machine_count
-        self.event = threading.Event()
-        self.event.set()
-        self.queue = queue.Queue()
-        self.ticks = randint(1, 6)
-        self.global_time = global_time
-        self.run_time = run_time
-        self.logical_clock = 0
-        self.sock = SocketUtil(self.host, self.port[self.id], self.queue, self.event)
-        self.sock.start()
-    
-        # Set up logger
-    
-    # Connect to other machines
-    def connections(self):
-        machine_connections = {}
-        for machine in range(self.machine_count - 1):
-            rec = (self.id + machine) % 3
-            conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            conn.connect(self.host, self.port[rec])
-            machine_connections[rec] = conn
-        return machine_connections
+def connections(machine_count, id, host, port):
+    machine_connections = {}
+    for machine in range(machine_count - 1):
+        rec = (id + machine) % 3
+        conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        conn.connect(host, port[rec])
+        machine_connections[rec] = conn
+    return machine_connections
 
-    def send_msg(self):
-        # increment logical clock by 1
-        connections = self.connections() 
-        for i in range(self.run_time):
-            for j in range(self.ticks):
-                self.logical_clock += 1
-                start_time = time.time()
-                if not self.queue.empty():
-                    # get the logical clock time that was sent to you
-                    rec_logical_clock = self.id_queue.get()
-                    self.id_queue.pop()
-                    self.logical_clock = max(rec_logical_clock, self.logical_clock)
-                    # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
-                    print("Queue is not empty!")
+def send_msg(host, port, id, machine_count, run_time):
+    queue = queue.Queue()
+    sock = SocketUtil(host, port[id], queue)
+    sock.start()
+
+    ticks = randint(1, 6)
+    logical_clock = 0
+
+    #logger
+    connections = connections(machine_count, id, host, port)
+    for i in range(run_time):
+        for j in range(ticks):
+            logical_clock += 1
+            start_time = time.time()
+            if not queue.empty():
+                # get the logical clock time that was sent to you
+                rec_logical_clock = queue.get()
+                queue.pop()
+                logical_clock = max(rec_logical_clock, logical_clock)
+                # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
+                print("Queue is not empty!")
+            else:
+                global val
+                val = randint(1,10)
+                if val == 1:
+                    # m0 sends to m1, m1 sends to m2, m2 sends to m0
+                    rec = [(id + 1) % 3]
+                    data = logical_clock.encode()
+                    connections[rec].send(data)
+                    print(data)
+                    # TODO: update log with the send, the system time, and the logical clock time
+                elif val == 2:
+                    # m0 sends to m2, m1 sends to m0, m2 sends to m1
+                    rec = [(id + 2) % 3]
+                    data = logical_clock.encode()
+                    connections[rec].send(data)
+                    print(data)
+                    # TODO: update log with the send, the system time, and the logical clock time
+                elif val == 3:
+                    # m0 sends to m1/2, m1 sends to m2/0, m2 sends to m0/1
+                    rec = [(id + 1)%3, (id + 2)%3]
+                    data = logical_clock.encode()
+                    connections[rec].send(data)
+                    print(data)
+                    # TODO: update log with the send, the system time, and the logical clock time
                 else:
-                    global val
-                    val = randint(1,10)
-                    if val == 1:
-                        # m0 sends to m1, m1 sends to m2, m2 sends to m0
-                        rec = [(self.id + 1) % 3]
-                        data = self.logical_clock.encode()
-                        connections[rec].send(data)
-                        # TODO: update log with the send, the system time, and the logical clock time
-                    elif val == 2:
-                        # m0 sends to m2, m1 sends to m0, m2 sends to m1
-                        rec = [(self.id + 2) % 3]
-                        data = self.logical_clock.encode()
-                        connections[rec].send(data)
-                        # TODO: update log with the send, the system time, and the logical clock time
-                    elif val == 3:
-                        # m0 sends to m1/2, m1 sends to m2/0, m2 sends to m0/1
-                        rec = [(self.id + 1)%3, (self.id + 2)%3]
-                        data = self.logical_clock.encode()
-                        connections[rec].send(data)
-                        # TODO: update log with the send, the system time, and the logical clock time
-                    else:
-                        # TODO: update log with internal event, the system time, and the logical clock value.
-                        pass
-            time.sleep(1/self.ticks - (time.time() - start_time))
-        
-        for connection in connections.values():
-            connection.close()
+                    # TODO: update log with internal event, the system time, and the logical clock value.
+                    pass
+        time.sleep(1/ticks - (time.time() - start_time))
     
-    # how do i close this socket lmao i cant reinit the socket oop
+    for connection in connections.values():
+        connection.close()
 
 if __name__ == "__main__":
     host = "localhost"
@@ -129,23 +118,7 @@ if __name__ == "__main__":
     threads = []
 
     for i in range(0, machine_count-1):
-        vm = VirtualMachine(host, ports, i, machine_count, global_time, run_time)
-        thread = Process(target=vm.send_msg)
+        thread = Process(target=send_msg, args=(host, ports, i, machine_count, run_time))
         thread.start()
         threads.append(thread)
-
-    '''v1 = VirtualMachine(host, ports[0], ticks, 3, 1)
-    v2 = VirtualMachine(host, ports[1], ticks, 3, 2)
-    v2 = VirtualMachine(host, ports[2], ticks, 3, 3)
-
-    p1 = Process(target=v1.machine([3048, 4048]))
-    p2 = Process(target=v1.machine([2048, 4048]))
-    p3 = Process(target=v1.machine([2048, 3048]))
-
-    p1.start()
-    p2.start()
-    p3.start()
-
-    p1.join()
-    p2.join()
-    p3.join()'''
+        print("whoo")
