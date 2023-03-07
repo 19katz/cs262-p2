@@ -53,6 +53,7 @@ class VirtualMachine:
         
         while True:
             # call send_msg on clock ticks, i think
+            pass
     
     # def gen_queues(self):
     #     system_queue = []
@@ -73,7 +74,8 @@ class VirtualMachine:
             # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
             print("Queue is not empty!")
         else:
-            global val = randint(1,10)
+            global val
+            val = randint(1,10)
             if val == 1:
                 # m0 sends to m1, m1 sends to m2, m2 sends to m0
                 rec = [(self.id + 1) % 3]
@@ -93,16 +95,16 @@ class VirtualMachine:
                 # TODO: update log with internal event, the system time, and the logical clock value.
                 pass
 
-    def start_server():
+    def start_machine(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.bind((self.host, self.port))
         self.socket.listen()
         while True:
             conn, addr = self.socket.accept()
-            start_new_thread(consumer, (conn,))
+            start_new_thread(self.consumer, (conn,))
 
     def machine(ports_to_connect):
-        init_thread = Thread(target=self.start_server, args=())
+        init_thread = Thread(target=self.start_machine, args=())
         init_thread.start()
         # delay to initialize server-side logic on all processes
         time.sleep(5)
