@@ -7,10 +7,11 @@ from random import randint
 from multiprocessing import Process
 from _thread import * 
 from threading import Thread
+import logging
 
 class VirtualMachine:
     """Class that represents an individual machine."""
-    def __init__(self, host, port, ticks, machine_count, id):
+    def __init__(self, host, port, machine_count, id):
         self.machine_count = machine_count
         # host name for this machine
         self.host = host
@@ -21,7 +22,7 @@ class VirtualMachine:
         # set ID for the machine to be added to queue
         self.id = id
         # set a random clock rate (randint 1-6, number of ticks per real world seconds)
-        self.ticks = ticks
+        self.ticks = randint(1, 6)
         # dictionary of queues to hold messages for all virtual machines
         self.system_queue = self.gen_queues()
         # queue to hold incoming messages for this id
@@ -64,6 +65,8 @@ class VirtualMachine:
     def send_msg(self):
         global_time = time.time()
         # increment logical clock by 1
+
+
         self.logical_clock += 1
 
         if not self.queue.empty():
