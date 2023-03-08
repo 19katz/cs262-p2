@@ -1,0 +1,301 @@
+2023-03-08 00:19:02,373 : 1678252737.366496 Machine: 2 Clock Rate: 5
+2023-03-08 00:19:02,373 : 1678252737.366496 Internal Event!; Logical Clock: 1
+2023-03-08 00:19:02,577 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 2
+2023-03-08 00:19:02,778 : 1678252737.366496 Internal Event!; Logical Clock: 3
+2023-03-08 00:19:02,982 : 1678252737.366496 Internal Event!; Logical Clock: 4
+2023-03-08 00:19:03,183 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 5
+2023-03-08 00:19:03,384 : 1678252737.366496 Internal Event!; Logical Clock: 6
+2023-03-08 00:19:03,589 : 1678252737.366496 Internal Event!; Logical Clock: 7
+2023-03-08 00:19:03,792 : 1678252737.366496 Internal Event!; Logical Clock: 8
+2023-03-08 00:19:03,995 : 1678252737.366496 Internal Event!; Logical Clock: 9
+2023-03-08 00:19:04,197 : 1678252737.366496 Internal Event!; Logical Clock: 10
+2023-03-08 00:19:04,399 : 1678252737.366496 Internal Event!; Logical Clock: 11
+2023-03-08 00:19:04,603 : 1678252737.366496 Internal Event!; Logical Clock: 12
+2023-03-08 00:19:04,805 : 1678252737.366496 Internal Event!; Logical Clock: 13
+2023-03-08 00:19:05,009 : 1678252737.366496 Internal Event!; Logical Clock: 14
+2023-03-08 00:19:05,212 : 1678252737.366496 Internal Event!; Logical Clock: 15
+2023-03-08 00:19:05,415 : 1678252737.366496 Internal Event!; Logical Clock: 16
+2023-03-08 00:19:05,620 : 1678252737.366496 Received a message; Logical Clock: 19; Queue Length: 0
+2023-03-08 00:19:05,825 : 1678252737.366496 Internal Event!; Logical Clock: 20
+2023-03-08 00:19:06,027 : 1678252737.366496 Internal Event!; Logical Clock: 21
+2023-03-08 00:19:06,231 : 1678252737.366496 Received a message; Logical Clock: 22; Queue Length: 0
+2023-03-08 00:19:06,435 : 1678252737.366496 Received a message; Logical Clock: 24; Queue Length: 0
+2023-03-08 00:19:06,639 : 1678252737.366496 Received a message; Logical Clock: 25; Queue Length: 0
+2023-03-08 00:19:06,842 : 1678252737.366496 Received a message; Logical Clock: 26; Queue Length: 1
+2023-03-08 00:19:07,046 : 1678252737.366496 Received a message; Logical Clock: 27; Queue Length: 0
+2023-03-08 00:19:07,250 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 28
+2023-03-08 00:19:07,453 : 1678252737.366496 Internal Event!; Logical Clock: 29
+2023-03-08 00:19:07,653 : 1678252737.366496 Internal Event!; Logical Clock: 30
+2023-03-08 00:19:07,857 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 31
+2023-03-08 00:19:08,062 : 1678252737.366496 Received a message; Logical Clock: 32; Queue Length: 0
+2023-03-08 00:19:08,265 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 33
+2023-03-08 00:19:08,467 : 1678252737.366496 Internal Event!; Logical Clock: 34
+2023-03-08 00:19:08,671 : 1678252737.366496 Internal Event!; Logical Clock: 35
+2023-03-08 00:19:08,874 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 36
+2023-03-08 00:19:09,079 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 37
+2023-03-08 00:19:09,279 : 1678252737.366496 Internal Event!; Logical Clock: 38
+2023-03-08 00:19:09,484 : 1678252737.366496 Received a message; Logical Clock: 41; Queue Length: 0
+2023-03-08 00:19:09,686 : 1678252737.366496 Received a message; Logical Clock: 44; Queue Length: 0
+2023-03-08 00:19:09,890 : 1678252737.366496 Internal Event!; Logical Clock: 45
+2023-03-08 00:19:10,092 : 1678252737.366496 Internal Event!; Logical Clock: 46
+2023-03-08 00:19:10,293 : 1678252737.366496 Internal Event!; Logical Clock: 47
+2023-03-08 00:19:10,495 : 1678252737.366496 Internal Event!; Logical Clock: 48
+2023-03-08 00:19:10,695 : 1678252737.366496 Internal Event!; Logical Clock: 49
+2023-03-08 00:19:10,897 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 50
+2023-03-08 00:19:11,102 : 1678252737.366496 Received a message; Logical Clock: 51; Queue Length: 0
+2023-03-08 00:19:11,302 : 1678252737.366496 Received a message; Logical Clock: 53; Queue Length: 0
+2023-03-08 00:19:11,506 : 1678252737.366496 Internal Event!; Logical Clock: 54
+2023-03-08 00:19:11,711 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 55
+2023-03-08 00:19:11,915 : 1678252737.366496 Internal Event!; Logical Clock: 56
+2023-03-08 00:19:12,115 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 57
+2023-03-08 00:19:12,318 : 1678252737.366496 Internal Event!; Logical Clock: 58
+2023-03-08 00:19:12,522 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 59
+2023-03-08 00:19:12,725 : 1678252737.366496 Internal Event!; Logical Clock: 60
+2023-03-08 00:19:12,927 : 1678252737.366496 Received a message; Logical Clock: 61; Queue Length: 0
+2023-03-08 00:19:13,132 : 1678252737.366496 Internal Event!; Logical Clock: 62
+2023-03-08 00:19:13,334 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 63
+2023-03-08 00:19:13,537 : 1678252737.366496 Internal Event!; Logical Clock: 64
+2023-03-08 00:19:13,738 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 65
+2023-03-08 00:19:13,942 : 1678252737.366496 Internal Event!; Logical Clock: 66
+2023-03-08 00:19:14,143 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 67
+2023-03-08 00:19:14,348 : 1678252737.366496 Internal Event!; Logical Clock: 68
+2023-03-08 00:19:14,548 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 69
+2023-03-08 00:19:14,750 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 70
+2023-03-08 00:19:14,955 : 1678252737.366496 Internal Event!; Logical Clock: 71
+2023-03-08 00:19:15,158 : 1678252737.366496 Internal Event!; Logical Clock: 72
+2023-03-08 00:19:15,360 : 1678252737.366496 Internal Event!; Logical Clock: 73
+2023-03-08 00:19:15,564 : 1678252737.366496 Internal Event!; Logical Clock: 74
+2023-03-08 00:19:15,767 : 1678252737.366496 Internal Event!; Logical Clock: 75
+2023-03-08 00:19:15,972 : 1678252737.366496 Received a message; Logical Clock: 80; Queue Length: 0
+2023-03-08 00:19:16,176 : 1678252737.366496 Internal Event!; Logical Clock: 81
+2023-03-08 00:19:16,380 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 82
+2023-03-08 00:19:16,582 : 1678252737.366496 Internal Event!; Logical Clock: 83
+2023-03-08 00:19:16,783 : 1678252737.366496 Internal Event!; Logical Clock: 84
+2023-03-08 00:19:16,983 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 85
+2023-03-08 00:19:17,183 : 1678252737.366496 Internal Event!; Logical Clock: 86
+2023-03-08 00:19:17,388 : 1678252737.366496 Internal Event!; Logical Clock: 87
+2023-03-08 00:19:17,592 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 88
+2023-03-08 00:19:17,793 : 1678252737.366496 Internal Event!; Logical Clock: 89
+2023-03-08 00:19:17,998 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 90
+2023-03-08 00:19:18,200 : 1678252737.366496 Internal Event!; Logical Clock: 91
+2023-03-08 00:19:18,405 : 1678252737.366496 Internal Event!; Logical Clock: 92
+2023-03-08 00:19:18,608 : 1678252737.366496 Internal Event!; Logical Clock: 93
+2023-03-08 00:19:18,813 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 94
+2023-03-08 00:19:19,017 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 95
+2023-03-08 00:19:19,221 : 1678252737.366496 Internal Event!; Logical Clock: 96
+2023-03-08 00:19:19,425 : 1678252737.366496 Internal Event!; Logical Clock: 97
+2023-03-08 00:19:19,627 : 1678252737.366496 Received a message; Logical Clock: 102; Queue Length: 0
+2023-03-08 00:19:19,830 : 1678252737.366496 Internal Event!; Logical Clock: 103
+2023-03-08 00:19:20,034 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 104
+2023-03-08 00:19:20,238 : 1678252737.366496 Internal Event!; Logical Clock: 105
+2023-03-08 00:19:20,442 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 106
+2023-03-08 00:19:20,646 : 1678252737.366496 Internal Event!; Logical Clock: 107
+2023-03-08 00:19:20,851 : 1678252737.366496 Internal Event!; Logical Clock: 108
+2023-03-08 00:19:21,055 : 1678252737.366496 Received a message; Logical Clock: 109; Queue Length: 1
+2023-03-08 00:19:21,255 : 1678252737.366496 Received a message; Logical Clock: 110; Queue Length: 2
+2023-03-08 00:19:21,458 : 1678252737.366496 Received a message; Logical Clock: 111; Queue Length: 2
+2023-03-08 00:19:21,660 : 1678252737.366496 Received a message; Logical Clock: 112; Queue Length: 1
+2023-03-08 00:19:21,864 : 1678252737.366496 Received a message; Logical Clock: 113; Queue Length: 0
+2023-03-08 00:19:22,068 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 114
+2023-03-08 00:19:22,272 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 115
+2023-03-08 00:19:22,475 : 1678252737.366496 Internal Event!; Logical Clock: 116
+2023-03-08 00:19:22,676 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 117
+2023-03-08 00:19:22,878 : 1678252737.366496 Internal Event!; Logical Clock: 118
+2023-03-08 00:19:23,078 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 119
+2023-03-08 00:19:23,279 : 1678252737.366496 Received a message; Logical Clock: 124; Queue Length: 0
+2023-03-08 00:19:23,479 : 1678252737.366496 Internal Event!; Logical Clock: 125
+2023-03-08 00:19:23,683 : 1678252737.366496 Internal Event!; Logical Clock: 126
+2023-03-08 00:19:23,886 : 1678252737.366496 Received a message; Logical Clock: 127; Queue Length: 0
+2023-03-08 00:19:24,089 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 128
+2023-03-08 00:19:24,292 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 129
+2023-03-08 00:19:24,495 : 1678252737.366496 Internal Event!; Logical Clock: 130
+2023-03-08 00:19:24,698 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 131
+2023-03-08 00:19:24,898 : 1678252737.366496 Internal Event!; Logical Clock: 132
+2023-03-08 00:19:25,101 : 1678252737.366496 Internal Event!; Logical Clock: 133
+2023-03-08 00:19:25,306 : 1678252737.366496 Internal Event!; Logical Clock: 134
+2023-03-08 00:19:25,510 : 1678252737.366496 Internal Event!; Logical Clock: 135
+2023-03-08 00:19:25,715 : 1678252737.366496 Internal Event!; Logical Clock: 136
+2023-03-08 00:19:25,917 : 1678252737.366496 Internal Event!; Logical Clock: 137
+2023-03-08 00:19:26,121 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 138
+2023-03-08 00:19:26,325 : 1678252737.366496 Internal Event!; Logical Clock: 139
+2023-03-08 00:19:26,527 : 1678252737.366496 Received a message; Logical Clock: 143; Queue Length: 0
+2023-03-08 00:19:26,727 : 1678252737.366496 Internal Event!; Logical Clock: 144
+2023-03-08 00:19:26,928 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 145
+2023-03-08 00:19:27,133 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 146
+2023-03-08 00:19:27,337 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 147
+2023-03-08 00:19:27,541 : 1678252737.366496 Internal Event!; Logical Clock: 148
+2023-03-08 00:19:27,746 : 1678252737.366496 Internal Event!; Logical Clock: 149
+2023-03-08 00:19:27,950 : 1678252737.366496 Received a message; Logical Clock: 151; Queue Length: 0
+2023-03-08 00:19:28,152 : 1678252737.366496 Internal Event!; Logical Clock: 152
+2023-03-08 00:19:28,355 : 1678252737.366496 Internal Event!; Logical Clock: 153
+2023-03-08 00:19:28,555 : 1678252737.366496 Received a message; Logical Clock: 155; Queue Length: 0
+2023-03-08 00:19:28,758 : 1678252737.366496 Internal Event!; Logical Clock: 156
+2023-03-08 00:19:28,963 : 1678252737.366496 Internal Event!; Logical Clock: 157
+2023-03-08 00:19:29,165 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 158
+2023-03-08 00:19:29,368 : 1678252737.366496 Internal Event!; Logical Clock: 159
+2023-03-08 00:19:29,568 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 160
+2023-03-08 00:19:29,771 : 1678252737.366496 Internal Event!; Logical Clock: 161
+2023-03-08 00:19:29,975 : 1678252737.366496 Internal Event!; Logical Clock: 162
+2023-03-08 00:19:30,179 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 163
+2023-03-08 00:19:30,382 : 1678252737.366496 Internal Event!; Logical Clock: 164
+2023-03-08 00:19:30,582 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 165
+2023-03-08 00:19:30,786 : 1678252737.366496 Internal Event!; Logical Clock: 166
+2023-03-08 00:19:30,990 : 1678252737.366496 Internal Event!; Logical Clock: 167
+2023-03-08 00:19:31,192 : 1678252737.366496 Internal Event!; Logical Clock: 168
+2023-03-08 00:19:31,392 : 1678252737.366496 Internal Event!; Logical Clock: 169
+2023-03-08 00:19:31,594 : 1678252737.366496 Received a message; Logical Clock: 171; Queue Length: 1
+2023-03-08 00:19:31,798 : 1678252737.366496 Received a message; Logical Clock: 172; Queue Length: 1
+2023-03-08 00:19:32,000 : 1678252737.366496 Received a message; Logical Clock: 173; Queue Length: 0
+2023-03-08 00:19:32,204 : 1678252737.366496 Internal Event!; Logical Clock: 174
+2023-03-08 00:19:32,408 : 1678252737.366496 Internal Event!; Logical Clock: 175
+2023-03-08 00:19:32,609 : 1678252737.366496 Internal Event!; Logical Clock: 176
+2023-03-08 00:19:32,812 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 177
+2023-03-08 00:19:33,015 : 1678252737.366496 Internal Event!; Logical Clock: 178
+2023-03-08 00:19:33,218 : 1678252737.366496 Received a message; Logical Clock: 179; Queue Length: 0
+2023-03-08 00:19:33,422 : 1678252737.366496 Internal Event!; Logical Clock: 180
+2023-03-08 00:19:33,627 : 1678252737.366496 Internal Event!; Logical Clock: 181
+2023-03-08 00:19:33,830 : 1678252737.366496 Received a message; Logical Clock: 186; Queue Length: 0
+2023-03-08 00:19:34,034 : 1678252737.366496 Received a message; Logical Clock: 187; Queue Length: 0
+2023-03-08 00:19:34,234 : 1678252737.366496 Internal Event!; Logical Clock: 188
+2023-03-08 00:19:34,438 : 1678252737.366496 Internal Event!; Logical Clock: 189
+2023-03-08 00:19:34,642 : 1678252737.366496 Internal Event!; Logical Clock: 190
+2023-03-08 00:19:34,845 : 1678252737.366496 Internal Event!; Logical Clock: 191
+2023-03-08 00:19:35,050 : 1678252737.366496 Internal Event!; Logical Clock: 192
+2023-03-08 00:19:35,250 : 1678252737.366496 Internal Event!; Logical Clock: 193
+2023-03-08 00:19:35,466 : 1678252737.366496 Internal Event!; Logical Clock: 194
+2023-03-08 00:19:35,670 : 1678252737.366496 Internal Event!; Logical Clock: 195
+2023-03-08 00:19:35,875 : 1678252737.366496 Internal Event!; Logical Clock: 196
+2023-03-08 00:19:36,077 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 197
+2023-03-08 00:19:36,278 : 1678252737.366496 Internal Event!; Logical Clock: 198
+2023-03-08 00:19:36,481 : 1678252737.366496 Internal Event!; Logical Clock: 199
+2023-03-08 00:19:36,685 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 200
+2023-03-08 00:19:36,887 : 1678252737.366496 Received a message; Logical Clock: 203; Queue Length: 0
+2023-03-08 00:19:37,091 : 1678252737.366496 Received a message; Logical Clock: 204; Queue Length: 0
+2023-03-08 00:19:37,293 : 1678252737.366496 Received a message; Logical Clock: 205; Queue Length: 1
+2023-03-08 00:19:37,497 : 1678252737.366496 Received a message; Logical Clock: 206; Queue Length: 0
+2023-03-08 00:19:37,699 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 207
+2023-03-08 00:19:37,904 : 1678252737.366496 Received a message; Logical Clock: 210; Queue Length: 0
+2023-03-08 00:19:38,108 : 1678252737.366496 Internal Event!; Logical Clock: 211
+2023-03-08 00:19:38,310 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 212
+2023-03-08 00:19:38,513 : 1678252737.366496 Internal Event!; Logical Clock: 213
+2023-03-08 00:19:38,717 : 1678252737.366496 Internal Event!; Logical Clock: 214
+2023-03-08 00:19:38,920 : 1678252737.366496 Internal Event!; Logical Clock: 215
+2023-03-08 00:19:39,125 : 1678252737.366496 Internal Event!; Logical Clock: 216
+2023-03-08 00:19:39,327 : 1678252737.366496 Internal Event!; Logical Clock: 217
+2023-03-08 00:19:39,529 : 1678252737.366496 Internal Event!; Logical Clock: 218
+2023-03-08 00:19:39,734 : 1678252737.366496 Received a message; Logical Clock: 219; Queue Length: 0
+2023-03-08 00:19:39,937 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 220
+2023-03-08 00:19:40,149 : 1678252737.366496 Internal Event!; Logical Clock: 221
+2023-03-08 00:19:40,352 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 222
+2023-03-08 00:19:40,556 : 1678252737.366496 Internal Event!; Logical Clock: 223
+2023-03-08 00:19:40,758 : 1678252737.366496 Internal Event!; Logical Clock: 224
+2023-03-08 00:19:40,964 : 1678252737.366496 Internal Event!; Logical Clock: 225
+2023-03-08 00:19:41,165 : 1678252737.366496 Received a message; Logical Clock: 226; Queue Length: 0
+2023-03-08 00:19:41,368 : 1678252737.366496 Internal Event!; Logical Clock: 227
+2023-03-08 00:19:41,570 : 1678252737.366496 Internal Event!; Logical Clock: 228
+2023-03-08 00:19:41,775 : 1678252737.366496 Internal Event!; Logical Clock: 229
+2023-03-08 00:19:41,980 : 1678252737.366496 Received a message; Logical Clock: 234; Queue Length: 0
+2023-03-08 00:19:42,182 : 1678252737.366496 Internal Event!; Logical Clock: 235
+2023-03-08 00:19:42,383 : 1678252737.366496 Received a message; Logical Clock: 236; Queue Length: 0
+2023-03-08 00:19:42,595 : 1678252737.366496 Internal Event!; Logical Clock: 237
+2023-03-08 00:19:42,796 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 238
+2023-03-08 00:19:43,000 : 1678252737.366496 Internal Event!; Logical Clock: 239
+2023-03-08 00:19:43,204 : 1678252737.366496 Internal Event!; Logical Clock: 240
+2023-03-08 00:19:43,408 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 241
+2023-03-08 00:19:43,613 : 1678252737.366496 Internal Event!; Logical Clock: 242
+2023-03-08 00:19:43,816 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 243
+2023-03-08 00:19:44,019 : 1678252737.366496 Received a message; Logical Clock: 245; Queue Length: 0
+2023-03-08 00:19:44,223 : 1678252737.366496 Internal Event!; Logical Clock: 246
+2023-03-08 00:19:44,427 : 1678252737.366496 Internal Event!; Logical Clock: 247
+2023-03-08 00:19:44,627 : 1678252737.366496 Internal Event!; Logical Clock: 248
+2023-03-08 00:19:44,828 : 1678252737.366496 Received a message; Logical Clock: 250; Queue Length: 0
+2023-03-08 00:19:45,033 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 251
+2023-03-08 00:19:45,237 : 1678252737.366496 Internal Event!; Logical Clock: 252
+2023-03-08 00:19:45,441 : 1678252737.366496 Internal Event!; Logical Clock: 253
+2023-03-08 00:19:45,643 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 254
+2023-03-08 00:19:45,846 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 255
+2023-03-08 00:19:46,047 : 1678252737.366496 Internal Event!; Logical Clock: 256
+2023-03-08 00:19:46,251 : 1678252737.366496 Internal Event!; Logical Clock: 257
+2023-03-08 00:19:46,455 : 1678252737.366496 Internal Event!; Logical Clock: 258
+2023-03-08 00:19:46,658 : 1678252737.366496 Internal Event!; Logical Clock: 259
+2023-03-08 00:19:46,862 : 1678252737.366496 Internal Event!; Logical Clock: 260
+2023-03-08 00:19:47,066 : 1678252737.366496 Internal Event!; Logical Clock: 261
+2023-03-08 00:19:47,270 : 1678252737.366496 Internal Event!; Logical Clock: 262
+2023-03-08 00:19:47,474 : 1678252737.366496 Internal Event!; Logical Clock: 263
+2023-03-08 00:19:47,675 : 1678252737.366496 Internal Event!; Logical Clock: 264
+2023-03-08 00:19:47,879 : 1678252737.366496 Received a message; Logical Clock: 268; Queue Length: 0
+2023-03-08 00:19:48,079 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 269
+2023-03-08 00:19:48,283 : 1678252737.366496 Internal Event!; Logical Clock: 270
+2023-03-08 00:19:48,485 : 1678252737.366496 Internal Event!; Logical Clock: 271
+2023-03-08 00:19:48,690 : 1678252737.366496 Internal Event!; Logical Clock: 272
+2023-03-08 00:19:48,892 : 1678252737.366496 Internal Event!; Logical Clock: 273
+2023-03-08 00:19:49,096 : 1678252737.366496 Internal Event!; Logical Clock: 274
+2023-03-08 00:19:49,297 : 1678252737.366496 Received a message; Logical Clock: 275; Queue Length: 0
+2023-03-08 00:19:49,501 : 1678252737.366496 Internal Event!; Logical Clock: 276
+2023-03-08 00:19:49,703 : 1678252737.366496 Received a message; Logical Clock: 279; Queue Length: 0
+2023-03-08 00:19:49,908 : 1678252737.366496 Internal Event!; Logical Clock: 280
+2023-03-08 00:19:50,108 : 1678252737.366496 Received a message; Logical Clock: 281; Queue Length: 0
+2023-03-08 00:19:50,310 : 1678252737.366496 Internal Event!; Logical Clock: 282
+2023-03-08 00:19:50,511 : 1678252737.366496 Internal Event!; Logical Clock: 283
+2023-03-08 00:19:50,713 : 1678252737.366496 Internal Event!; Logical Clock: 284
+2023-03-08 00:19:50,915 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 285
+2023-03-08 00:19:51,119 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 286
+2023-03-08 00:19:51,321 : 1678252737.366496 Received a message; Logical Clock: 288; Queue Length: 1
+2023-03-08 00:19:51,525 : 1678252737.366496 Received a message; Logical Clock: 289; Queue Length: 0
+2023-03-08 00:19:51,726 : 1678252737.366496 Internal Event!; Logical Clock: 290
+2023-03-08 00:19:51,926 : 1678252737.366496 Internal Event!; Logical Clock: 291
+2023-03-08 00:19:52,139 : 1678252737.366496 Internal Event!; Logical Clock: 292
+2023-03-08 00:19:52,342 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 293
+2023-03-08 00:19:52,543 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 294
+2023-03-08 00:19:52,748 : 1678252737.366496 Internal Event!; Logical Clock: 295
+2023-03-08 00:19:52,952 : 1678252737.366496 Internal Event!; Logical Clock: 296
+2023-03-08 00:19:53,155 : 1678252737.366496 Received a message; Logical Clock: 299; Queue Length: 0
+2023-03-08 00:19:53,358 : 1678252737.366496 Internal Event!; Logical Clock: 300
+2023-03-08 00:19:53,559 : 1678252737.366496 Internal Event!; Logical Clock: 301
+2023-03-08 00:19:53,760 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 302
+2023-03-08 00:19:53,961 : 1678252737.366496 Internal Event!; Logical Clock: 303
+2023-03-08 00:19:54,165 : 1678252737.366496 Received a message; Logical Clock: 305; Queue Length: 0
+2023-03-08 00:19:54,367 : 1678252737.366496 Internal Event!; Logical Clock: 306
+2023-03-08 00:19:54,571 : 1678252737.366496 Internal Event!; Logical Clock: 307
+2023-03-08 00:19:54,775 : 1678252737.366496 Internal Event!; Logical Clock: 308
+2023-03-08 00:19:54,979 : 1678252737.366496 Internal Event!; Logical Clock: 309
+2023-03-08 00:19:55,180 : 1678252737.366496 Internal Event!; Logical Clock: 310
+2023-03-08 00:19:55,384 : 1678252737.366496 Internal Event!; Logical Clock: 311
+2023-03-08 00:19:55,587 : 1678252737.366496 Internal Event!; Logical Clock: 312
+2023-03-08 00:19:55,791 : 1678252737.366496 Internal Event!; Logical Clock: 313
+2023-03-08 00:19:55,994 : 1678252737.366496 Internal Event!; Logical Clock: 314
+2023-03-08 00:19:56,198 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 315
+2023-03-08 00:19:56,400 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 316
+2023-03-08 00:19:56,604 : 1678252737.366496 Internal Event!; Logical Clock: 317
+2023-03-08 00:19:56,808 : 1678252737.366496 Internal Event!; Logical Clock: 318
+2023-03-08 00:19:57,010 : 1678252737.366496 Received a message; Logical Clock: 320; Queue Length: 0
+2023-03-08 00:19:57,214 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 321
+2023-03-08 00:19:57,417 : 1678252737.366496 Internal Event!; Logical Clock: 322
+2023-03-08 00:19:57,622 : 1678252737.366496 Sent a message to Machine 0; Logical Clock: 323
+2023-03-08 00:19:57,825 : 1678252737.366496 Internal Event!; Logical Clock: 324
+2023-03-08 00:19:58,029 : 1678252737.366496 Internal Event!; Logical Clock: 325
+2023-03-08 00:19:58,233 : 1678252737.366496 Internal Event!; Logical Clock: 326
+2023-03-08 00:19:58,433 : 1678252737.366496 Received a message; Logical Clock: 327; Queue Length: 0
+2023-03-08 00:19:58,637 : 1678252737.366496 Internal Event!; Logical Clock: 328
+2023-03-08 00:19:58,841 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 329
+2023-03-08 00:19:59,044 : 1678252737.366496 Internal Event!; Logical Clock: 330
+2023-03-08 00:19:59,246 : 1678252737.366496 Internal Event!; Logical Clock: 331
+2023-03-08 00:19:59,451 : 1678252737.366496 Received a message; Logical Clock: 335; Queue Length: 0
+2023-03-08 00:19:59,655 : 1678252737.366496 Internal Event!; Logical Clock: 336
+2023-03-08 00:19:59,858 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 337
+2023-03-08 00:20:00,062 : 1678252737.366496 Internal Event!; Logical Clock: 338
+2023-03-08 00:20:00,265 : 1678252737.366496 Internal Event!; Logical Clock: 339
+2023-03-08 00:20:00,468 : 1678252737.366496 Received a message; Logical Clock: 342; Queue Length: 0
+2023-03-08 00:20:00,672 : 1678252737.366496 Sent a message to Machines [0, 1]; Logical Clock: 343
+2023-03-08 00:20:00,875 : 1678252737.366496 Internal Event!; Logical Clock: 344
+2023-03-08 00:20:01,078 : 1678252737.366496 Received a message; Logical Clock: 346; Queue Length: 0
+2023-03-08 00:20:01,279 : 1678252737.366496 Received a message; Logical Clock: 347; Queue Length: 0
+2023-03-08 00:20:01,482 : 1678252737.366496 Internal Event!; Logical Clock: 348
+2023-03-08 00:20:01,687 : 1678252737.366496 Sent a message to Machine 1; Logical Clock: 349
+2023-03-08 00:20:01,891 : 1678252737.366496 Internal Event!; Logical Clock: 350
+2023-03-08 00:20:02,091 : 1678252737.366496 Internal Event!; Logical Clock: 351
+2023-03-08 00:20:02,294 : 1678252737.366496 Internal Event!; Logical Clock: 352
+2023-03-08 00:20:02,495 : 1678252737.366496 Received a message; Logical Clock: 353; Queue Length: 0
+2023-03-08 00:20:02,698 : 1678252737.366496 Received a message; Logical Clock: 354; Queue Length: 0
+2023-03-08 00:20:02,902 : 1678252737.366496 Received a message; Logical Clock: 355; Queue Length: 0
+2023-03-08 00:20:03,106 : 1678252737.366496 Internal Event!; Logical Clock: 356

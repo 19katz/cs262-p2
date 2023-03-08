@@ -1,0 +1,9 @@
+2023-03-08 10:25:15,638 : 1678289110.631489 Machine: 1 Clock Rate: 2
+2023-03-08 10:25:15,638 : 1678289110.631489 Sent a message to Machine 0; Logical Clock: 1
+2023-03-08 10:25:16,143 : 1678289110.631489 Sent a message to Machines [2, 0]; Logical Clock: 2
+2023-03-08 10:25:16,648 : 1678289110.631489 Sent a message to Machines [2, 0]; Logical Clock: 3
+2023-03-08 10:25:17,149 : 1678289110.631489 Internal Event!; Logical Clock: 4
+2023-03-08 10:25:17,652 : 1678289110.631489 Sent a message to Machine 0; Logical Clock: 5
+2023-03-08 10:25:18,157 : 1678289110.631489 Sent a message to Machines [2, 0]; Logical Clock: 6
+2023-03-08 10:25:18,662 : 1678289110.631489 Internal Event!; Logical Clock: 7
+2023-03-08 10:25:19,167 : 1678289110.631489 Internal Event!; Logical Clock: 8
