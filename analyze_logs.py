@@ -3,6 +3,13 @@ import numpy as np
 import os
 import csv
 
+"""
+File for analyzing logs from our specific trials, detailed in our Log Experiments
+writeup.
+"""
+
+# reads and parses information such as average/stdev/max jump, drifts, clock values,
+# clock rate, and max queue length from a single machine's log
 def read_and_parse_from_log(file):
     with open(file, 'r') as fr:
         first_line = fr.readline()
@@ -26,8 +33,9 @@ def read_and_parse_from_log(file):
                 prev_time = logical_clock_times[i - 1]
                 jumps.append(logical_clock_time - prev_time)
 
+            # calculation for drift compares the seconds elapsed according to the
+            # logical clock time to the seconds elapsed in real time
             drifts.append(round(logical_clock_time / clock_rate - (i + 1) / clock_rate, 2))
-
             if "Received" in line:
                 line_queue = line_args[2]
                 queue_length = int(line_queue.split(':')[-1].strip())
@@ -39,6 +47,7 @@ def read_and_parse_from_log(file):
         
     return clock_rate, logical_clock_times, jumps, drifts, max_queue_length
 
+# plots a histogram of data values (used mainly for jumps)
 def plot_histogram(data, x_vals, x_label, y_label, title, timestamp):
     fig, ax = plt.subplots(figsize =(6, 4))
     ax.hist(data, bins = x_vals)
@@ -67,14 +76,16 @@ if __name__ == "__main__":
 
         for i in range(len(timestamps)):
             timestamp = timestamps[i]
+            print(timestamp)
             for j in range(3):
                 t_file = directory + "machine_" + timestamp + "_" + str(j) + "_6.log"
                 clock_rate, logical_clock_times, jumps, drifts, max_queue_length = read_and_parse_from_log(t_file)
+                # calculate means, maxes, etc. and plot 
                 max_jump = max(jumps)
                 mean_jump = round(np.mean(jumps), 3)
                 std_jump = round(np.std(jumps), 3)
-                print(max_jump)
                 plot_histogram(jumps, range(0, max_jump + 1), "Jump Magnitude", "Frequency", "Jump Histogram for Trial " + str(i) + " machine " + str(j) + " with tick rate = "+ str(clock_rate), timestamp)
+                
                 max_drift = max(drifts)
                 
                 to_write = [i, clock_rate, mean_jump, std_jump, max_jump, max_drift, max_queue_length]
@@ -105,11 +116,10 @@ if __name__ == "__main__":
             for j in range(3):
                 t_file = directory + "machine_" + timestamp + "_" + str(j) + "_3_5.log"
                 clock_rate, logical_clock_times, jumps, drifts, max_queue_length = read_and_parse_from_log(t_file)
+                # calculate means, maxes, etc. and plot 
                 max_jump = max(jumps)
                 mean_jump = round(np.mean(jumps), 3)
                 std_jump = round(np.std(jumps), 3)
-                print(jumps)
-                print(max_jump)
                 plot_histogram(jumps, range(0, max_jump + 1), "Jump Magnitude", "Frequency", "Jump Histogram for tick range = 3, rand = 5, machine " + str(j) + ", tick rate = "+ str(clock_rate), timestamp)
                 max_drift = max(drifts)
                 

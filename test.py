@@ -6,6 +6,7 @@ import os
 
 from logical_clocks_lab import producer, consumer, logging_util
 
+# Test Producer thread
 class TestProducer(unittest.TestCase):
     def setUp(self):
         self.host = 'localhost'
@@ -23,28 +24,34 @@ class TestProducer(unittest.TestCase):
         
         self.mock_msg_queue = MagicMock()
         
+        # expected logs
         self.expected_log = [
             f'{global_time} Machine: 0 Clock Rate: 3',
             f'{global_time} Sent a message to Machine 2; Logical Clock: 1'
         ]
-        
+    
+    # Test correct number of connections
     def test_producer(self):        
         conns = []
         for i in range(len(self.ports)):
             conns.append(self.mock_conn)
 
+        # test number of connections
         self.assertEqual(len(conns), 3)
         print("Successfully connects to all other ports")
+        # test that there were no messages in the queue
         self.assertEqual(self.mock_msg_queue.empty.call_count, 0)
         print("No messages were sent to queue")
     
-    
+
+# Test consumer thread
 class TestConsumer(unittest.TestCase):
     def setUp(self):
         self.mock_conn = Mock()
         self.mock_conn.recv.return_value = b'1'
         self.mock_msg_queue = MagicMock()
 
+    # Test that sending works correctly 
     def test_consumer(self):
         data = int(self.mock_conn.recv(1024).decode('ascii'))
         self.mock_conn.close()
@@ -53,6 +60,7 @@ class TestConsumer(unittest.TestCase):
         self.assertEqual(self.mock_conn.close.call_count, 1)
         print("Connection is successfully closed")
 
+# Test the logger
 class TestSetupLogger(unittest.TestCase):
     def test_setup_logger(self):
         logger_name = 'test_logger'

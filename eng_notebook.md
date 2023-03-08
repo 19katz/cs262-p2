@@ -49,3 +49,10 @@ to the other machines
 - Each machine runs as a Process
 - Tried to organize things in a class structure, but this caused Threading issues
 - Going to remove things from classes to make it work
+- Decided to completely go with the structure laid out in lab, with a consumer and producer thread -- this seems to work well
+
+## Experimental Runs
+- had some trouble figuring out how exactly to measure drift: eventually, we settled on comparing the time in machine seconds to the time in real seconds
+- measure avg/stdev jump, max jump, max drift, and max queue length for each machine
+- expecting bigger jumps with more tick variance
+- use matplotlib to plot histogram

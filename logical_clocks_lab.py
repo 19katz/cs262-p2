@@ -5,11 +5,16 @@ import multiprocessing
 from multiprocessing import Process, Manager
 from _thread import * 
 from threading import Thread
-from select import select
-from signal import signal, SIGPIPE, SIG_DFL
 import logging
 import queue
 
+"""
+File that runs 3 machines with 3 different clock rates according to
+parameters given in the main function. The actions of these machines
+will be logged along with the starting real-time timestamp in text files.
+"""
+
+# global variable representing the current time in each process
 global global_time
 global_time = time.time()
 
@@ -40,6 +45,7 @@ def consumer(conn):
         data = conn.recv(1024)
         data_msg = data.decode('ascii')
         if len(data_msg) == 0:
+            print("Dropped")
             # connection has dropped
             break
         print("Received message " + data_msg)
