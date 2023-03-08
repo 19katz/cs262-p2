@@ -6,7 +6,7 @@ Installation:
 
 `pip install -r requirements.txt`
 
-(Note: the required are mainly for analyzing the logs, not actually running th emachines)
+(Note: the required are mainly for analyzing the logs, not actually running the machines)
 
 ## Usage
 
