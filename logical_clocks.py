@@ -1,7 +1,4 @@
 import time
-import threading
-import queue
-import os
 import socket
 from random import randint
 from multiprocessing import Process, Manager
@@ -9,6 +6,7 @@ from _thread import *
 from threading import Thread
 from select import select
 from signal import signal, SIGPIPE, SIG_DFL
+import logging
 
 global global_time
 global_time = time.time()
@@ -16,8 +14,20 @@ global_time = time.time()
 signal(SIGPIPE,SIG_DFL)
 
 # logger
-def logging_util():
-    pass
+def logging_util(name, file):
+    logger = logging.getLogger(name)
+    formatter = logging.Formatter('%(asctime)s : %(message)s')
+
+    fileHandler = logging.FileHandler(file, mode='w')
+    fileHandler.setFormatter(formatter)
+
+    # Set up the stream handler for printing to the console
+    streamHandler = logging.StreamHandler()
+    streamHandler.setFormatter(formatter)
+
+    logger.setLevel('INFO')
+    logger.addHandler(fileHandler)
+    logger.addHandler(streamHandler)
 
 # https://stackoverflow.com/questions/1540822/dumping-a-multiprocessing-queue-into-a-list
 def dump_queue(q):
@@ -56,6 +66,11 @@ def send_msg(host, port, id, machine_count, run_time):
     logical_clock = 0
 
     #logger
+    log_name = f'machine_{id}'
+    logging_util(log_name, f'machine_{id}.log')
+    log = logging.getLogger(log_name)
+    log.info(f'{global_time} Machine: {id} Clock Rate: {ticks}')
+
     machine_connections = {}
     for machine in range(machine_count - 1):
         rec = (id + machine + 1) % 3
@@ -70,7 +85,9 @@ def send_msg(host, port, id, machine_count, run_time):
             if not queue.empty():
                 # get the logical clock time that was sent to you
                 rec_logical_clock = int(queue.get())
+                print("item from queue", rec_logical_clock)
                 logical_clock = max(rec_logical_clock, logical_clock)
+                log.info(f'{global_time} Received a message; Logical Clock: {logical_clock}')
                 # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
                 print("Queue is not empty!")
                 dump_queue(queue)
@@ -86,6 +103,7 @@ def send_msg(host, port, id, machine_count, run_time):
                     print(machine_connections)
                     data = str(logical_clock).encode('ascii')
                     machine_connections[rec].send(data)
+                    log.info(f'{global_time} Sent a message to Machine {rec}; Logical Clock: {logical_clock}')
                     print("sent ", data)
                     dump_queue(queue)
                     # TODO: update log with the send, the system time, and the logical clock time
@@ -98,6 +116,7 @@ def send_msg(host, port, id, machine_count, run_time):
                     print(machine_connections)
                     data = str(logical_clock).encode('ascii')
                     machine_connections[rec].send(data)
+                    log.info(f'{global_time} Sent a message to Machine {rec}; Logical Clock: {logical_clock}')
                     print("sent ", data)
                     dump_queue(queue)
                     # TODO: update log with the send, the system time, and the logical clock time
@@ -111,12 +130,12 @@ def send_msg(host, port, id, machine_count, run_time):
                         print("receiver:", rec)
                         print(machine_connections)
                         machine_connections[r].send(data)
+                        log.info(f'{global_time} Sent a message to Machine {r}; Logical Clock: {logical_clock}')
                     print("sent ", data)
                     dump_queue(queue)
                     # TODO: update log with the send, the system time, and the logical clock time
                 else:
-                    # TODO: update log with internal event, the system time, and the logical clock value.
-                    pass
+                    log.info(f'{global_time} Internal Event!; Logical Clock: {logical_clock}')
 
         time.sleep(1/ticks - (time.time() - start_time))
     
