@@ -1,25 +1,24 @@
-2023-03-07 21:47:16,895 : 1678243636.8335261 Machine: 2 Clock Rate: 5
-2023-03-07 21:47:16,897 : 1678243636.8335261 Internal Event!; Logical Clock: 1
-2023-03-07 21:47:16,897 : 1678243636.8335261 Internal Event!; Logical Clock: 2
-2023-03-07 21:47:16,898 : 1678243636.8335261 Internal Event!; Logical Clock: 3
-2023-03-07 21:47:16,899 : 1678243636.8335261 Internal Event!; Logical Clock: 4
-2023-03-07 21:47:16,899 : 1678243636.8335261 Sent a message to Machine 1; Logical Clock: 5
-2023-03-07 21:47:17,104 : 1678243636.8335261 Received a message at 1; Logical Clock: 6; Queue Length: 0
-2023-03-07 21:47:17,105 : 1678243636.8335261 Internal Event!; Logical Clock: 7
-2023-03-07 21:47:17,105 : 1678243636.8335261 Internal Event!; Logical Clock: 8
-2023-03-07 21:47:17,105 : 1678243636.8335261 Internal Event!; Logical Clock: 9
-2023-03-07 21:47:17,105 : 1678243636.8335261 Internal Event!; Logical Clock: 10
-2023-03-07 21:47:17,311 : 1678243636.8335261 Sent a message to Machine 0; Logical Clock: 11
-2023-03-07 21:47:17,311 : 1678243636.8335261 Sent a message to Machine 1; Logical Clock: 11
-2023-03-07 21:47:17,312 : 1678243636.8335261 Internal Event!; Logical Clock: 12
-2023-03-07 21:47:17,312 : 1678243636.8335261 Sent a message to Machine 1; Logical Clock: 13
-2023-03-07 21:47:17,313 : 1678243636.8335261 Internal Event!; Logical Clock: 14
-2023-03-07 21:47:17,313 : 1678243636.8335261 Sent a message to Machine 0; Logical Clock: 15
-2023-03-07 21:47:17,519 : 1678243636.8335261 Internal Event!; Logical Clock: 16
-2023-03-07 21:47:17,519 : 1678243636.8335261 Internal Event!; Logical Clock: 17
-2023-03-07 21:47:17,519 : 1678243636.8335261 Internal Event!; Logical Clock: 18
-2023-03-07 21:47:17,520 : 1678243636.8335261 Internal Event!; Logical Clock: 19
-2023-03-07 21:47:17,520 : 1678243636.8335261 Internal Event!; Logical Clock: 20
-2023-03-07 21:47:17,722 : 1678243636.8335261 Internal Event!; Logical Clock: 21
-2023-03-07 21:47:17,722 : 1678243636.8335261 Internal Event!; Logical Clock: 22
-2023-03-07 21:47:17,722 : 1678243636.8335261 Internal Event!; Logical Clock: 23
+2023-03-07 23:55:42,014 : 1678251341.955047 Machine: 2 Clock Rate: 4
+2023-03-07 23:55:42,016 : 1678251341.955047 Sent a message to Machine 0; Logical Clock: 1
+2023-03-07 23:55:42,271 : 1678251341.955047 Sent a message to Machine 1; Logical Clock: 2
+2023-03-07 23:55:42,526 : 1678251341.955047 Internal Event!; Logical Clock: 3
+2023-03-07 23:55:42,779 : 1678251341.955047 Internal Event!; Logical Clock: 4
+2023-03-07 23:55:43,034 : 1678251341.955047 Internal Event!; Logical Clock: 5
+2023-03-07 23:55:43,289 : 1678251341.955047 Received a message; Logical Clock: 6; Queue Length: 0
+2023-03-07 23:55:43,544 : 1678251341.955047 Internal Event!; Logical Clock: 7
+2023-03-07 23:55:43,799 : 1678251341.955047 Internal Event!; Logical Clock: 8
+2023-03-07 23:55:44,054 : 1678251341.955047 Sent a message to Machine 1; Logical Clock: 9
+2023-03-07 23:55:44,308 : 1678251341.955047 Sent a message to Machine 1; Logical Clock: 10
+2023-03-07 23:55:44,563 : 1678251341.955047 Sent a message to Machine 0; Logical Clock: 11
+2023-03-07 23:55:44,819 : 1678251341.955047 Internal Event!; Logical Clock: 12
+2023-03-07 23:55:45,071 : 1678251341.955047 Internal Event!; Logical Clock: 13
+2023-03-07 23:55:45,322 : 1678251341.955047 Internal Event!; Logical Clock: 14
+2023-03-07 23:55:45,578 : 1678251341.955047 Internal Event!; Logical Clock: 15
+2023-03-07 23:55:45,828 : 1678251341.955047 Internal Event!; Logical Clock: 16
+2023-03-07 23:55:46,078 : 1678251341.955047 Received a message; Logical Clock: 17; Queue Length: 0
+2023-03-07 23:55:46,333 : 1678251341.955047 Sent a message to Machine 1; Logical Clock: 18
+2023-03-07 23:55:46,583 : 1678251341.955047 Internal Event!; Logical Clock: 19
+2023-03-07 23:55:46,837 : 1678251341.955047 Internal Event!; Logical Clock: 20
+2023-03-07 23:55:47,092 : 1678251341.955047 Internal Event!; Logical Clock: 21
+2023-03-07 23:55:47,343 : 1678251341.955047 Internal Event!; Logical Clock: 22
+2023-03-07 23:55:47,598 : 1678251341.955047 Internal Event!; Logical Clock: 23

@@ -1,7 +1,7 @@
 import time
 import socket
 from random import randint
-from multiprocessing import Process, Manager
+from multiprocessing import Process, Manager, Event
 from _thread import * 
 from threading import Thread
 from select import select
@@ -38,25 +38,47 @@ class SocketUtil(Process):
         self.host = host
         self.port = port
         self.queue = queue
+        self.event = Event()
 
         # init server
-        self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server.bind((self.host, self.port))
+        try:
+            self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.server.bind((self.host, self.port))
+        except Exception as e:
+            print(e)
         self.server.listen(10)
     
     def run(self):
-        conn, addr = self.server.accept()
-        print("Connection accepted: " + str(conn))
-        data = conn.recv(1024)
-        data_msg = data.decode('ascii')
-        print("Received message " + data_msg)
-        # add to queue
-        self.queue.put((data_msg)) 
+        self.event.set()
+        while self.event.is_set():
+            try:
+                conn, addr = self.server.accept()
+                print("Connection accepted: " + str(conn))
+            except Exception as e:
+                print(e)
+            try:
+                data = conn.recv(1024)
+                if data:
+                    data_msg = data.decode('ascii')
+                    print("Received message " + data_msg)
+                    # add to queue
+                    self.queue.put((data_msg))
+            except Exception as e:
+                print(e)
+        
+        self.server.close()
+        print("server closed?")
+    
+    def close_conns(self):
+        self.event.clear()
 
 def send_msg(host, port, id, machine_count, run_time):
     queue = Manager().Queue()
-    sock = SocketUtil(host, port[id], queue)
-    sock.start()
+    try:
+        sock = SocketUtil(host, port[id], queue)
+        sock.start()
+    except Exception as e:
+        print(e)
 
     ticks = randint(1, 6)
     logical_clock = 0
@@ -76,15 +98,21 @@ def send_msg(host, port, id, machine_count, run_time):
     
     for i in range(run_time):
         for j in range(ticks):
-            logical_clock += 1
             start_time = time.time()
+            logical_clock += 1
+
             if not queue.empty():
-                # get the logical clock time that was sent to you
-                rec_logical_clock = queue.get()
+                try:
+                    # get the logical clock time that was sent to you
+                    rec_logical_clock = queue.get()
+                except Exception as e:
+                    print(e)
+                if rec_logical_clock:
+                    logical_clock = max(int(rec_logical_clock), logical_clock)
                 length = queue.qsize()
-                logical_clock = max(int(rec_logical_clock), logical_clock)
                 # write in the log that it received a message, the global time (gotten from the system), the length of the message queue, and the logical clock time
                 log.info(f'{global_time} Received a message; Logical Clock: {logical_clock}; Queue Length: {length}')
+
             else:
                 global val
                 val = randint(1,10)
@@ -109,17 +137,18 @@ def send_msg(host, port, id, machine_count, run_time):
                         log.info(f'{global_time} Sent a message to Machine {r}; Logical Clock: {logical_clock}')
                 else:
                     log.info(f'{global_time} Internal Event!; Logical Clock: {logical_clock}')
-
-        time.sleep(1/ticks - (time.time() - start_time))
+            time.sleep(1.0/ticks - (time.time() - start_time))
     
+    print("bro do you reach here")
     for connection in machine_connections.values():
+        print(connection)
         connection.close()
+    
 
 if __name__ == "__main__":
     host = "localhost"
     ports = [2048, 3048, 4048]
     machine_count = 3
-    global_time = time.time()
     run_time = 50
 
     thread1 = Process(target=send_msg, args=(host, ports, 0, machine_count, run_time))
