@@ -17,14 +17,10 @@ signal(SIGPIPE,SIG_DFL)
 def logging_util(name, file):
     logger = logging.getLogger(name)
     formatter = logging.Formatter('%(asctime)s : %(message)s')
-
     fileHandler = logging.FileHandler(file, mode='w')
     fileHandler.setFormatter(formatter)
-
-    # Set up the stream handler for printing to the console
     streamHandler = logging.StreamHandler()
     streamHandler.setFormatter(formatter)
-
     logger.setLevel('INFO')
     logger.addHandler(fileHandler)
     logger.addHandler(streamHandler)
@@ -84,56 +80,33 @@ def send_msg(host, port, id, machine_count, run_time):
             start_time = time.time()
             if not queue.empty():
                 # get the logical clock time that was sent to you
-                rec_logical_clock = int(queue.get())
-                print("item from queue", rec_logical_clock)
-                logical_clock = max(rec_logical_clock, logical_clock)
-                log.info(f'{global_time} Received a message; Logical Clock: {logical_clock}')
-                # TODO: update log that it got a message, the global time (from system), length of message queue, and the machine logical clock time
-                print("Queue is not empty!")
-                dump_queue(queue)
+                rec_logical_clock = queue.get()
+                length = queue.qsize()
+                logical_clock = max(int(rec_logical_clock), logical_clock)
+                # write in the log that it received a message, the global time (gotten from the system), the length of the message queue, and the logical clock time
+                log.info(f'{global_time} Received a message; Logical Clock: {logical_clock}; Queue Length: {length}')
             else:
                 global val
                 val = randint(1,10)
                 if val == 1:
-                    print("val:", val)
                     # m0 sends to m1, m1 sends to m2, m2 sends to m0
                     rec = (id + 1) % 3
-                    print("id", id)
-                    print("receiver:", rec)
-                    print(machine_connections)
                     data = str(logical_clock).encode('ascii')
                     machine_connections[rec].send(data)
                     log.info(f'{global_time} Sent a message to Machine {rec}; Logical Clock: {logical_clock}')
-                    print("sent ", data)
-                    dump_queue(queue)
-                    # TODO: update log with the send, the system time, and the logical clock time
                 elif val == 2:
-                    print("val:", val)
                     # m0 sends to m2, m1 sends to m0, m2 sends to m1
                     rec = (id + 2) % 3
-                    print("id", id)
-                    print("receiver:", rec)
-                    print(machine_connections)
                     data = str(logical_clock).encode('ascii')
                     machine_connections[rec].send(data)
                     log.info(f'{global_time} Sent a message to Machine {rec}; Logical Clock: {logical_clock}')
-                    print("sent ", data)
-                    dump_queue(queue)
-                    # TODO: update log with the send, the system time, and the logical clock time
                 elif val == 3:
-                    print("val:", val)
                     # m0 sends to m1/2, m1 sends to m2/0, m2 sends to m0/1
                     rec = [(id + 1)%3, (id + 2)%3]
                     data = str(logical_clock).encode('ascii')
                     for r in rec:
-                        print("id", id)
-                        print("receiver:", rec)
-                        print(machine_connections)
                         machine_connections[r].send(data)
                         log.info(f'{global_time} Sent a message to Machine {r}; Logical Clock: {logical_clock}')
-                    print("sent ", data)
-                    dump_queue(queue)
-                    # TODO: update log with the send, the system time, and the logical clock time
                 else:
                     log.info(f'{global_time} Internal Event!; Logical Clock: {logical_clock}')
 
@@ -147,7 +120,7 @@ if __name__ == "__main__":
     ports = [2048, 3048, 4048]
     machine_count = 3
     global_time = time.time()
-    run_time = 10
+    run_time = 50
 
     thread1 = Process(target=send_msg, args=(host, ports, 0, machine_count, run_time))
     thread2 = Process(target=send_msg, args=(host, ports, 1, machine_count, run_time))
